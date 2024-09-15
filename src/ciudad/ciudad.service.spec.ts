@@ -1,5 +1,4 @@
 /* eslint-disable prettier/prettier */
-/*archivo src/receta/receta.service.spec.ts*/
 import { Test, TestingModule } from '@nestjs/testing';
 import { CiudadService } from './ciudad.service';
 import { faker } from '@faker-js/faker';
