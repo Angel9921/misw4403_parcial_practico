@@ -1,0 +1,860 @@
+{
+	"info": {
+		"_postman_id": "13bb3d8f-3647-4ef4-b0bd-5af033a4a571",
+		"name": "Supermercados",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "17207462"
+	},
+	"item": [
+		{
+			"name": "Add a supermarket",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var data = pm.response.json();",
+							"pm.environment.set(\"supermarket_id\", data.id);",
+							"",
+							"pm.test(\"Status code is 201\", function () {",
+							"   pm.response.to.have.status(201);",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"nombre\": \"Supermercado del Centro\",\n  \"longitud\": -75,\n  \"latitud\": 6,\n  \"web\": \"https://supercentro.com\"\n}\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseURL}}/supermarkets",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"supermarkets"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Add a supermarket",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"nombre\": \"Supermercado del Centro\",\n  \"longitud\": -75,\n  \"latitud\": 6,\n  \"web\": \"https://supercentro.com\"\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/supermarkets",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"supermarkets"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "139"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"8b-hpUiLeHfpipMsc62R72/gVsEzJg\""
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 15 Sep 2024 14:14:18 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"nombre\": \"Supermercado del Centro\",\n    \"longitud\": -75,\n    \"latitud\": 6,\n    \"web\": \"https://supercentro.com\",\n    \"id\": \"c66ba703-1484-4025-bc9b-99ba9f46d245\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Add an invalid supermarket",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 412\", function () {",
+							"   pm.response.to.have.status(412);",
+							"});",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"nombre\": \"Mercado\",\n  \"longitud\": -75.675,\n  \"latitud\": 6.235,\n  \"web\": \"supermercado\" \n}\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseURL}}/supermarkets",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"supermarkets"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Add an invalid supermarket",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"nombre\": \"Mercado\",\n  \"longitud\": -75.675,\n  \"latitud\": 6.235,\n  \"web\": \"supermercado\" \n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/supermarkets",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"supermarkets"
+							]
+						}
+					},
+					"status": "Precondition Failed",
+					"code": 412,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "85"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"55-dVpka7MEu1mLRGBFMzSYWHiQL7Q\""
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 15 Sep 2024 14:15:01 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"statusCode\": 412,\n    \"message\": \"The supermarket name must have more than 10 characters\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Get all supermarkets",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test('Number of supermarkets > ' + 0, function () {",
+							"   var data = pm.response.json();",
+							"   pm.expect(data.length).to.be.greaterThan(0);",
+							"});",
+							"",
+							"pm.test(\"Status code is 200\", function () {",
+							"   pm.response.to.have.status(200);",
+							"});",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/supermarkets",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"supermarkets"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Get all supermarkets",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/supermarkets",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"supermarkets"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "155"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"9b-QZmq4KE0jijnx7+c2yUwh91DS5E\""
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 15 Sep 2024 14:15:13 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"id\": \"c66ba703-1484-4025-bc9b-99ba9f46d245\",\n        \"nombre\": \"Supermercado del Centro\",\n        \"longitud\": -75,\n        \"latitud\": 6,\n        \"web\": \"https://supercentro.com\",\n        \"ciudades\": []\n    }\n]"
+				}
+			]
+		},
+		{
+			"name": "Get one supermarket",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"   pm.response.to.have.status(200);",
+							"});",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/supermarkets/{{supermarket_id}}",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"supermarkets",
+						"{{supermarket_id}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Get one supermarket",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/supermarkets/{{supermarket_id}}",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"supermarkets",
+								"{{supermarket_id}}"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "153"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"99-iGEdEbr4iq9mM8XH8bpFbti+jhc\""
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 15 Sep 2024 14:15:17 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": \"c66ba703-1484-4025-bc9b-99ba9f46d245\",\n    \"nombre\": \"Supermercado del Centro\",\n    \"longitud\": -75,\n    \"latitud\": 6,\n    \"web\": \"https://supercentro.com\",\n    \"ciudades\": []\n}"
+				}
+			]
+		},
+		{
+			"name": "Get an invalid supermarket",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {",
+							"   pm.response.to.have.status(404);",
+							"});",
+							"",
+							"pm.test(\"Get expected error message\", function () {",
+							"   var data = pm.response.json();",
+							"   pm.expect(data.message).to.eql(\"The supermarket with the given id was not found\");",
+							"});",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/supermarkets/e5e5d75b-9f89-4b64-b121-f802c0f1a44e",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"supermarkets",
+						"e5e5d75b-9f89-4b64-b121-f802c0f1a44e"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Get an invalid supermarket",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/supermarkets/e5e5d75b-9f89-4b64-b121-f802c0f1a44e",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"supermarkets",
+								"e5e5d75b-9f89-4b64-b121-f802c0f1a44e"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "78"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"4e-So3L6afIKwI/u66qTnUtURsV+x0\""
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 15 Sep 2024 14:15:26 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"statusCode\": 404,\n    \"message\": \"The supermarket with the given id was not found\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Update a supermarket",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"   pm.response.to.have.status(200);",
+							"});",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"nombre\": \"Supermercado del Centro\",\n  \"longitud\": -5,\n  \"latitud\": 10,\n  \"web\": \"https://supercentro.com\"\n}\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseURL}}/supermarkets/{{supermarket_id}}",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"supermarkets",
+						"{{supermarket_id}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Update a supermarket",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"nombre\": \"Supermercado del Centro\",\n  \"longitud\": -5,\n  \"latitud\": 10,\n  \"web\": \"https://supercentro.com\"\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/supermarkets/{{supermarket_id}}",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"supermarkets",
+								"{{supermarket_id}}"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "139"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"8b-NLCFDEBuS6YrxcKWIDrz+wWM95M\""
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 15 Sep 2024 14:15:49 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"nombre\": \"Supermercado del Centro\",\n    \"longitud\": -5,\n    \"latitud\": 10,\n    \"web\": \"https://supercentro.com\",\n    \"id\": \"c66ba703-1484-4025-bc9b-99ba9f46d245\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Update an invalid supermarket",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {",
+							"   pm.response.to.have.status(404);",
+							"});",
+							"",
+							"pm.test(\"Get expected error message\", function () {",
+							"   var data = pm.response.json();",
+							"   pm.expect(data.message).to.eql(\"The supermarket with the given id was not found\");",
+							"});",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"nombre\": \"Supermercado del Centro\",\n  \"longitud\": -5.67,\n  \"latitud\": 6.23,\n  \"web\": \"https://supercentro.com\"\n}\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseURL}}/supermarkets/e5e5d75b-9f89-4b64-b121-f802c0f1a44e",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"supermarkets",
+						"e5e5d75b-9f89-4b64-b121-f802c0f1a44e"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Update an invalid supermarket",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"nombre\": \"Supermercado del Centro\",\n  \"longitud\": -5.67,\n  \"latitud\": 6.23,\n  \"web\": \"https://supercentro.com\"\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/supermarkets/e5e5d75b-9f89-4b64-b121-f802c0f1a44e",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"supermarkets",
+								"e5e5d75b-9f89-4b64-b121-f802c0f1a44e"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "78"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"4e-So3L6afIKwI/u66qTnUtURsV+x0\""
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 15 Sep 2024 14:15:53 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"statusCode\": 404,\n    \"message\": \"The supermarket with the given id was not found\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Delete a supermarket",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 204\", function () {",
+							"   pm.response.to.have.status(204);",
+							"});",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/supermarkets/{{supermarket_id}}",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"supermarkets",
+						"{{supermarket_id}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Delete a supermarket",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/supermarkets/{{supermarket_id}}",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"supermarkets",
+								"{{supermarket_id}}"
+							]
+						}
+					},
+					"status": "No Content",
+					"code": 204,
+					"_postman_previewlanguage": "plain",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 15 Sep 2024 14:15:56 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": null
+				}
+			]
+		},
+		{
+			"name": "Delete an invalid supermarket",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {",
+							"   pm.response.to.have.status(404);",
+							"});",
+							"",
+							"pm.test(\"Get expected error message\", function () {",
+							"   var data = pm.response.json();",
+							"   pm.expect(data.message).to.eql(\"The supermarket with the given id was not found\");",
+							"});",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/supermarkets/e5e5d75b-9f89-4b64-b121-f802c0f1a44e",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"supermarkets",
+						"e5e5d75b-9f89-4b64-b121-f802c0f1a44e"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Delete an invalid supermarket",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/supermarkets/e5e5d75b-9f89-4b64-b121-f802c0f1a44e",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"supermarkets",
+								"e5e5d75b-9f89-4b64-b121-f802c0f1a44e"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "78"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"4e-So3L6afIKwI/u66qTnUtURsV+x0\""
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 15 Sep 2024 14:16:00 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"statusCode\": 404,\n    \"message\": \"The supermarket with the given id was not found\"\n}"
+				}
+			]
+		}
+	]
+}

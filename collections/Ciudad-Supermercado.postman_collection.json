@@ -1,0 +1,946 @@
+{
+	"info": {
+		"_postman_id": "e8c99b1e-f304-478e-bdb7-bd796662aeaf",
+		"name": "Ciudad-Supermercado",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "17207462"
+	},
+	"item": [
+		{
+			"name": "Add a supermarket Copy",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var data = pm.response.json();",
+							"pm.environment.set(\"supermarket_id\", data.id);",
+							"",
+							"pm.test(\"Status code is 201\", function () {",
+							"   pm.response.to.have.status(201);",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"nombre\": \"Supermercado del Centro\",\n  \"longitud\": -75,\n  \"latitud\": 6,\n  \"web\": \"https://supercentro.com\"\n}\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseURL}}/supermarkets",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"supermarkets"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Add a supermarket Copy",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"nombre\": \"Supermercado del Centro\",\n  \"longitud\": -75,\n  \"latitud\": 6,\n  \"web\": \"https://supercentro.com\"\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/supermarkets",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"supermarkets"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "139"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"8b-WBBIN+X1KipPRB0tPc5jPJMS6to\""
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 15 Sep 2024 14:20:08 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"nombre\": \"Supermercado del Centro\",\n    \"longitud\": -75,\n    \"latitud\": 6,\n    \"web\": \"https://supercentro.com\",\n    \"id\": \"b6ab3545-10d2-42ca-aaf3-76935a1d6b5d\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Add a city Copy",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var data = pm.response.json();",
+							"pm.environment.set(\"city_id\", data.id);",
+							"",
+							"pm.test(\"Status code is 201\", function () {",
+							"   pm.response.to.have.status(201);",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"nombre\": \"Buenos aires\",\n  \"pais\": \"Argentina\",\n  \"numHabitantes\": 50000\n}\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseURL}}/cities",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"cities"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Add a city Copy",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"nombre\": \"Buenos aires\",\n  \"pais\": \"Argentina\",\n  \"numHabitantes\": 50000\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/cities",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"cities"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "110"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"6e-bBrqgMLTN+HYMNg9TguMaz5nGYY\""
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 15 Sep 2024 14:20:12 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"nombre\": \"Buenos aires\",\n    \"pais\": \"Argentina\",\n    \"numHabitantes\": 50000,\n    \"id\": \"b0a2776f-f0e6-41bb-8052-b7cd1dabd8cb\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Add a Supermarket to a City",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 201\", function () {",
+							"   pm.response.to.have.status(201);",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/cities/{{city_id}}/supermarkets/{{supermarket_id}}",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"cities",
+						"{{city_id}}",
+						"supermarkets",
+						"{{supermarket_id}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Add a Supermarket to a City",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/cities/{{city_id}}/supermarkets/{{supermarket_id}}",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"cities",
+								"{{city_id}}",
+								"supermarkets",
+								"{{supermarket_id}}"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "268"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"10c-dAg35vyFYABRaEHq+/hBLb8W5W8\""
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 15 Sep 2024 14:20:14 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": \"b0a2776f-f0e6-41bb-8052-b7cd1dabd8cb\",\n    \"nombre\": \"Buenos aires\",\n    \"pais\": \"Argentina\",\n    \"numHabitantes\": 50000,\n    \"supermercados\": [\n        {\n            \"id\": \"b6ab3545-10d2-42ca-aaf3-76935a1d6b5d\",\n            \"nombre\": \"Supermercado del Centro\",\n            \"longitud\": -75,\n            \"latitud\": 6,\n            \"web\": \"https://supercentro.com\"\n        }\n    ]\n}"
+				}
+			]
+		},
+		{
+			"name": "Add an invalid Supermarket to a City",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {",
+							"   pm.response.to.have.status(404);",
+							"});",
+							"",
+							"pm.test(\"Get expected error message\", function () {",
+							"   var data = pm.response.json();",
+							"   pm.expect(data.message).to.eql(\"The supermarket with the given id was not found\");",
+							"});",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/cities/{{city_id}}/supermarkets/e5e5d75b-9f89-4b64-b121-f802c0f1a44e",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"cities",
+						"{{city_id}}",
+						"supermarkets",
+						"e5e5d75b-9f89-4b64-b121-f802c0f1a44e"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Add an invalid Supermarket to a City",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/cities/{{city_id}}/supermarkets/e5e5d75b-9f89-4b64-b121-f802c0f1a44e",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"cities",
+								"{{city_id}}",
+								"supermarkets",
+								"e5e5d75b-9f89-4b64-b121-f802c0f1a44e"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "78"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"4e-So3L6afIKwI/u66qTnUtURsV+x0\""
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 15 Sep 2024 14:20:20 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"statusCode\": 404,\n    \"message\": \"The supermarket with the given id was not found\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Get the Supermarkets of a City",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"   pm.response.to.have.status(200);",
+							"});",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/cities/{{city_id}}/supermarkets",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"cities",
+						"{{city_id}}",
+						"supermarkets"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Get the Supermarkets of a City",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/cities/{{city_id}}/supermarkets",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"cities",
+								"{{city_id}}",
+								"supermarkets"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "141"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"8d-jmoSHCrFKrs3Uc8BXTdjS/qUjvw\""
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 15 Sep 2024 14:20:25 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"id\": \"b6ab3545-10d2-42ca-aaf3-76935a1d6b5d\",\n        \"nombre\": \"Supermercado del Centro\",\n        \"longitud\": -75,\n        \"latitud\": 6,\n        \"web\": \"https://supercentro.com\"\n    }\n]"
+				}
+			]
+		},
+		{
+			"name": "Get a Supermarket of a City",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"   pm.response.to.have.status(200);",
+							"});",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/cities/{{city_id}}/supermarkets/{{supermarket_id}}",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"cities",
+						"{{city_id}}",
+						"supermarkets",
+						"{{supermarket_id}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Get a Supermarket of a City",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/cities/{{city_id}}/supermarkets/{{supermarket_id}}",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"cities",
+								"{{city_id}}",
+								"supermarkets",
+								"{{supermarket_id}}"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "139"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"8b-0/T+5Bwlp5021niF+JaZU3P2ZJA\""
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 15 Sep 2024 14:20:28 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": \"b6ab3545-10d2-42ca-aaf3-76935a1d6b5d\",\n    \"nombre\": \"Supermercado del Centro\",\n    \"longitud\": -75,\n    \"latitud\": 6,\n    \"web\": \"https://supercentro.com\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Get an invalid Receta of a City",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 412\", function () {",
+							"   pm.response.to.have.status(412);",
+							"});",
+							"",
+							"pm.test(\"Get expected error message\", function () {",
+							"   var data = pm.response.json();",
+							"   pm.expect(data.message).to.eql(\"The supermarket with the given id is not associated to the city\");",
+							"});",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/cities/{{city_id}}/supermarkets/00000000",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"cities",
+						"{{city_id}}",
+						"supermarkets",
+						"00000000"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Get an invalid Receta of a City",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/cities/{{city_id}}/supermarkets/00000000",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"cities",
+								"{{city_id}}",
+								"supermarkets",
+								"00000000"
+							]
+						}
+					},
+					"status": "Precondition Failed",
+					"code": 412,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "94"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"5e-XRNaVUX1z2U9blnyeEhzHK3f9/o\""
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 15 Sep 2024 14:20:31 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"statusCode\": 412,\n    \"message\": \"The supermarket with the given id is not associated to the city\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Update the Supermarkets of a City",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"   pm.response.to.have.status(200);",
+							"});",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id\": \"{{city_id}\"\n}\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseURL}}/cities/{{city_id}}/supermarkets",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"cities",
+						"{{city_id}}",
+						"supermarkets"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update an invalid Supermarket of a City",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {",
+							"   pm.response.to.have.status(404);",
+							"});",
+							"",
+							"pm.test(\"Get expected error message\", function () {",
+							"   var data = pm.response.json();",
+							"   pm.expect(data.message).to.eql(\"One of the supermarkets was not found\");",
+							"});",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[\n    {\n        \"id\": \"e5e5d75b-9f89-4b64-b121-f802c0f1a44e\"\n    }\n]\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseURL}}/cities/{{city_id}}/supermarkets",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"cities",
+						"{{city_id}}",
+						"supermarkets"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Update an invalid Supermarket of a City",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "[\n    {\n        \"id\": \"e5e5d75b-9f89-4b64-b121-f802c0f1a44e\"\n    }\n]\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/cities/{{city_id}}/supermarkets",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"cities",
+								"{{city_id}}",
+								"supermarkets"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "68"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"44-U6uVgqmPy415z+AMUicAW7uD9zc\""
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 15 Sep 2024 14:24:59 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"statusCode\": 404,\n    \"message\": \"One of the supermarkets was not found\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Delete a Supermarket from a City",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 204\", function () {",
+							"   pm.response.to.have.status(204);",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/cities/{{city_id}}/supermarkets/{{supermarket_id}}",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"cities",
+						"{{city_id}}",
+						"supermarkets",
+						"{{supermarket_id}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Delete a Supermarket from a City",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/cities/{{city_id}}/supermarkets/{{supermarket_id}}",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"cities",
+								"{{city_id}}",
+								"supermarkets",
+								"{{supermarket_id}}"
+							]
+						}
+					},
+					"status": "No Content",
+					"code": 204,
+					"_postman_previewlanguage": "plain",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 15 Sep 2024 14:25:03 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": null
+				}
+			]
+		},
+		{
+			"name": "Delete an invalid Supermarket from a City",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {",
+							"   pm.response.to.have.status(404);",
+							"});",
+							"",
+							"pm.test(\"Get expected error message\", function () {",
+							"   var data = pm.response.json();",
+							"   pm.expect(data.message).to.eql(\"The supermarket with the given id was not found\");",
+							"});",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/cities/{{city_id}}/supermarkets/e5e5d75b-9f89-4b64-b121-f802c0f1a44e",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"cities",
+						"{{city_id}}",
+						"supermarkets",
+						"e5e5d75b-9f89-4b64-b121-f802c0f1a44e"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

@@ -1,0 +1,810 @@
+{
+	"info": {
+		"_postman_id": "40883be8-e944-4c43-91f8-4a21b8116ab6",
+		"name": "Ciudades",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "17207462"
+	},
+	"item": [
+		{
+			"name": "Add a city",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var data = pm.response.json();",
+							"pm.environment.set(\"city_id\", data.id);",
+							"",
+							"pm.test(\"Status code is 201\", function () {",
+							"   pm.response.to.have.status(201);",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"nombre\": \"Buenos aires\",\n  \"pais\": \"Argentina\",\n  \"numHabitantes\": 50000\n}\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseURL}}/cities",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"cities"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Add a city",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"nombre\": \"Buenos aires\",\n  \"pais\": \"Argentina\",\n  \"poblacion\": 50000\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/cities",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"cities"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json",
+							"name": "Content-Type",
+							"description": "",
+							"type": "text"
+						}
+					],
+					"cookie": [],
+					"body": "{\n  \"nombre\": \"Buenos aires\",\n  \"pais\": \"Argentina\",\n  \"poblacion\": 50000\n}\n"
+				}
+			]
+		},
+		{
+			"name": "Add an invalid city",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 412\", function () {",
+							"   pm.response.to.have.status(412);",
+							"});",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"nombre\": \"\",\n  \"pais\": \"Antina\",\n  \"numHabitantes\": 100000\n}\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseURL}}/cities",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"cities"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Add an invalid city",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"nombre\": \"\",\n  \"pais\": \"Argentina\",\n  \"poblacion\": 100000\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/cities",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"cities"
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": "{\n  \"nombre\": \"Buenos aires\",\n  \"pais\": \"Argentina\",\n  \"poblacion\": 50000\n}\n"
+				}
+			]
+		},
+		{
+			"name": "Get all cities",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test('Number of cities > ' + 0, function () {",
+							"   var data = pm.response.json();",
+							"   pm.expect(data.length).to.be.greaterThan(0);",
+							"});",
+							"",
+							"pm.test(\"Status code is 200\", function () {",
+							"   pm.response.to.have.status(200);",
+							"});",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/cities",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"cities"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Get all cities",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/cities",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"cities"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "521"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"209-0ZxKYp5YsnFKWUCDJOCmAJ+Obxo\""
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 15 Sep 2024 13:51:38 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"id\": \"3e96d524-09bc-4fa3-959f-123455d7d625\",\n        \"nombre\": \"Buenos aires\",\n        \"pais\": \"Argentina\",\n        \"numHabitantes\": 50000,\n        \"supermercados\": []\n    },\n    {\n        \"id\": \"3678fab5-d87c-4a2d-b797-d2c0d5310e13\",\n        \"nombre\": \"Buenos aires\",\n        \"pais\": \"Argentina\",\n        \"numHabitantes\": 50000,\n        \"supermercados\": []\n    },\n    {\n        \"id\": \"5b02585a-9a1f-410b-a107-41248a4a0447\",\n        \"nombre\": \"Buenos aires\",\n        \"pais\": \"Argentina\",\n        \"numHabitantes\": 50000,\n        \"supermercados\": []\n    },\n    {\n        \"id\": \"fdd4c191-5a51-4b48-b198-0a23ce8f8f1a\",\n        \"nombre\": \"Buenos aires\",\n        \"pais\": \"Argentina\",\n        \"numHabitantes\": 50000,\n        \"supermercados\": []\n    }\n]"
+				}
+			]
+		},
+		{
+			"name": "Get one city",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"   pm.response.to.have.status(200);",
+							"});",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/cities/{{city_id}}",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"cities",
+						"{{city_id}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Get one city",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/cities/{{city_id}}",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"cities",
+								"{{city_id}}"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "129"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"81-QiU09hj/c2D2SDjUdAMA7zhkrIw\""
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 15 Sep 2024 14:10:38 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": \"58751733-365e-4855-a25c-cf7c4e2f083a\",\n    \"nombre\": \"Buenos aires\",\n    \"pais\": \"Argentina\",\n    \"numHabitantes\": 50000,\n    \"supermercados\": []\n}"
+				}
+			]
+		},
+		{
+			"name": "Get an invalid city",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {",
+							"   pm.response.to.have.status(404);",
+							"});",
+							"",
+							"pm.test(\"Get expected error message\", function () {",
+							"   var data = pm.response.json();",
+							"   pm.expect(data.message).to.eql(\"The city with the given id was not found\");",
+							"});",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/cities/e5e5d75b-9f89-4b64-b121-f802c0f1a44e",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"cities",
+						"e5e5d75b-9f89-4b64-b121-f802c0f1a44e"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Get an invalid city",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/cities/e5e5d75b-9f89-4b64-b121-f802c0f1a44e",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"cities",
+								"e5e5d75b-9f89-4b64-b121-f802c0f1a44e"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "71"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"47-/0V/k2+crzI7sGzpGdseMTk6hHQ\""
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 15 Sep 2024 13:45:57 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"statusCode\": 404,\n    \"message\": \"The city with the given id was not found\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Update a city",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"   pm.response.to.have.status(200);",
+							"});",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"nombre\": \"Bariloche\",\n  \"pais\": \"Argentina\",\n  \"numHabitantes\": 50000\n}\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseURL}}/cities/{{city_id}}",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"cities",
+						"{{city_id}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Update a city",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"nombre\": \"Bariloche\",\n  \"pais\": \"Argentina\",\n  \"numHabitantes\": 50000\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/cities/{{city_id}}",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"cities",
+								"{{city_id}}"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "107"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"6b-qGrfDwFdgrAhs7cMJla7v+aKd+Q\""
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 15 Sep 2024 14:10:45 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"nombre\": \"Bariloche\",\n    \"pais\": \"Argentina\",\n    \"numHabitantes\": 50000,\n    \"id\": \"58751733-365e-4855-a25c-cf7c4e2f083a\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Update an invalid city",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {",
+							"   pm.response.to.have.status(404);",
+							"});",
+							"",
+							"pm.test(\"Get expected error message\", function () {",
+							"   var data = pm.response.json();",
+							"   pm.expect(data.message).to.eql(\"The city with the given id was not found\");",
+							"});",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"nombre\": \"Bariloche\",\n  \"pais\": \"Argentina\",\n  \"poblacion\": 50000\n}\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseURL}}/cities/e5e5d75b-9f89-4b64-b121-f802c0f1a44e",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"cities",
+						"e5e5d75b-9f89-4b64-b121-f802c0f1a44e"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Update an invalid city",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"nombre\": \"Bariloche\",\n  \"pais\": \"Argentina\",\n  \"poblacion\": 50000\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/cities/e5e5d75b-9f89-4b64-b121-f802c0f1a44e",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"cities",
+								"e5e5d75b-9f89-4b64-b121-f802c0f1a44e"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "71"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"47-/0V/k2+crzI7sGzpGdseMTk6hHQ\""
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 15 Sep 2024 14:10:51 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"statusCode\": 404,\n    \"message\": \"The city with the given id was not found\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Delete a city",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 204\", function () {",
+							"   pm.response.to.have.status(204);",
+							"});",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/cities/{{city_id}}",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"cities",
+						"{{city_id}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Delete a city",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/cities/{{city_id}}",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"cities",
+								"{{city_id}}"
+							]
+						}
+					},
+					"status": "No Content",
+					"code": 204,
+					"_postman_previewlanguage": "plain",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 15 Sep 2024 14:10:54 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": null
+				}
+			]
+		},
+		{
+			"name": "Delete an invalid city",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {",
+							"   pm.response.to.have.status(404);",
+							"});",
+							"",
+							"pm.test(\"Get expected error message\", function () {",
+							"   var data = pm.response.json();",
+							"   pm.expect(data.message).to.eql(\"The city with the given id was not found\");",
+							"});",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/cities/e5e5d75b-9f89-4b64-b121-f802c0f1a44e",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"cities",
+						"e5e5d75b-9f89-4b64-b121-f802c0f1a44e"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Delete an invalid city",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/cities/e5e5d75b-9f89-4b64-b121-f802c0f1a44e",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"cities",
+								"e5e5d75b-9f89-4b64-b121-f802c0f1a44e"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "71"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"47-/0V/k2+crzI7sGzpGdseMTk6hHQ\""
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 15 Sep 2024 14:10:59 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"statusCode\": 404,\n    \"message\": \"The city with the given id was not found\"\n}"
+				}
+			]
+		}
+	]
+}
